@@ -9,8 +9,9 @@ declare namespace NavigationNS {
     type AuthStackParamsList = {
         Login: undefined,
         SignUp: undefined,
+        SplashScreen: undefined,
     };
-
+    
     /**
      * the below section is for type checking screens.
      * annotating navigation prop and route prop which are received by screen.
@@ -24,6 +25,11 @@ declare namespace NavigationNS {
     type SignUpScreenProps = import('@react-navigation/stack').StackScreenProps<
         AuthStackParamsList,
         'SignUp',
+    >;
+
+    type SplashScreenAuthStackProps = import('@react-navigation/stack').StackScreenProps<
+        AuthStackParamsList,
+        'SplashScreen',
     >;
 
     interface ITabBarIconFunctionProps {

@@ -7,4 +7,6 @@ export const NEAR_BLACK = '#1E2022';
 export const SUCCESS = '#3adb76';
 export const WARNING = '#ffae00';
 export const ALERT = '#cc4b37';
-export const INACTIVE = '#AACFD0';
+export const INACTIVE = '#a1c2cf';
+export const INACTIVE_TEXT = '#808080';
+export const ERROR = '#ED4337';
