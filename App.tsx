@@ -5,9 +5,7 @@ import {Provider} from 'react-redux';
 import NavigationContainer from './src/index';
 import store from '@redux/store';
 
-
 const App = () => {
-
   return (
       <Provider store = {store}>
           <NavigationContainer/>
