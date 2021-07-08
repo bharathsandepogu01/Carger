@@ -1,6 +1,13 @@
 import {combineReducers} from 'redux';
-import UserDataReducer from './userData';
+
+import UserData from './userData';
+import Login from './login';
+import Register from './register';
+import ManageToken from './manageToken';
 
 export default combineReducers({
-    UserDataReducer,
+    UserData,
+    Login,
+    Register,
+    ManageToken,
 });

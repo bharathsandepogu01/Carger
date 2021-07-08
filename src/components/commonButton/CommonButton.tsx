@@ -3,6 +3,7 @@ import {
     Text,
     TouchableOpacity,
     GestureResponderEvent,
+    ActivityIndicator
 } from 'react-native';
 
 import Styles from './CommonButton.styles';
@@ -24,7 +25,16 @@ const CommonButton:React.FC<CommonComponentsNS.ICommonButtonProps> = (props) => 
         >
             <Text style={Styles.text}>{props.name}</Text>
             {props.children}
-        </TouchableOpacity> 
+            {props.isLoading?(
+                <ActivityIndicator 
+                    animating={true} 
+                    size={'small'} 
+                    color={Styles.text.color}
+                />
+            ):(
+                null
+            )}
+        </TouchableOpacity>     
     );
 };
 

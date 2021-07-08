@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/core";
 import Styles from './SplashScreen.styles';
 
 const SplashScreen = () => {
-    const newNavigation = useNavigation<NavigationNS.SplashScreenAuthStackProps['navigation'] >();
+    const newNavigation = useNavigation<NavigationNS.SplashScreenAuthStackProps['navigation']>();
     useEffect(() => {
         setTimeout(() => {
             newNavigation.replace('Login');

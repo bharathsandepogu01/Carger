@@ -20,6 +20,8 @@ declare namespace CommonComponentsNS {
         'web-search' |
         'visible-password'; 
     
+    type PopupType = 'error' | 'warning' | 'success' | 'info';    
+    
     interface IDisplayImageProps {
         imageContainerStyle?: ViewStyle;
         imgStyle?: ImageStyle;
@@ -31,6 +33,7 @@ declare namespace CommonComponentsNS {
         keyboardType: InputKeyBoardType;
         inputValue: string;
         onChangeInputValue: (...args:any) => void;
+        onInputValidationError?:(...args:any) => void;
         placeHolder: string;
         customStyle: ViewStyle;
         secureTextEntry?: boolean;
@@ -41,11 +44,19 @@ declare namespace CommonComponentsNS {
         onClick: (...args:any) => void;
         buttonStyle?: ViewStyle; 
         name: string;
+        isLoading?: boolean;
     }
 
     interface ICommonAuthLayoutProps {
         heading: string;
         formContainerFlex?: ViewStyle;
+    }
+
+    interface ICommonPopupProps {
+        message: string,
+        popupType: PopupType,
+        isPopupOpen: boolean,
+        popupModalOpen: (...args: any) => void;
     }
 
 }

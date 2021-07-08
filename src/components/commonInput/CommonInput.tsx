@@ -21,55 +21,67 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
 
     useEffect(()=>{
         setInputValue(props.inputValue);
+        setErrorMsg(null);
     }, [props.inputValue]);
+
+    const setInput = (
+        inputValidation: boolean | RegExpMatchArray,
+        inputValue: string, 
+        errorMsg:string,
+    ) => {
+        if(inputValidation){
+            setErrorMsg(null);
+            props.onChangeInputValue(inputValue);
+        }else {
+            setErrorMsg(errorMsg);
+            props.onInputValidationError?(
+                props.onInputValidationError(true)
+            ):(null);
+        }
+    };
 
     const inputChangeDebounceFunction = useCallback(_.debounce(
         (value: string)=>{
             switch(props.inputTypeToValidate){
                 case 'Email':
                     const mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-                    if(value.match(mailFormat) || value === ''){
-                        setErrorMsg(null);
-                        props.onChangeInputValue(value);
-                    }else {
-                        setErrorMsg('Invalid email address');
-                    };
+                    setInput(
+                        value.match(mailFormat) || value === '', 
+                        value, 
+                        'Invalid email address'
+                    );
                     break;
                 case 'Name':
-                    const aplhaNumericFormat = /^[0-9a-zA-Z]+$/;
-                    if(value.match(aplhaNumericFormat) || value === ''){
-                        setErrorMsg(null);
-                        props.onChangeInputValue(value);
-                    }else {
-                        setErrorMsg('Name should be alpha-numeric');
-                    }; 
+                    const aplhaNumericFormat = /^[a-zA-Z]+$/; 
+                    setInput(
+                        value.match(aplhaNumericFormat) || value === '', 
+                        value, 
+                        'Name must only include alphabets'
+                    );
                     break;   
                 case 'PhoneNumber':
                     const numericFormat = /^\d{10}$/;
-                    if(value.match(numericFormat) || value === ''){
-                        setErrorMsg(null);
-                        props.onChangeInputValue(value);
-                    }else {
-                        setErrorMsg('Phone number should be 10 digits');
-                    };
+                    setInput(
+                        value.match(numericFormat) || value === '', 
+                        value, 
+                        'Phone number should be 10 digits'
+                    );
                     break;
                 case 'Password':
                     const passwordFormat = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-                    if(value.match(passwordFormat) || value === ''){
-                        setErrorMsg(null);
-                        props.onChangeInputValue(value);
-                    }else {
-                        setErrorMsg('Password should have min 8 characters including special character, number and alphabets');
-                    };
+                    setInput(
+                        value.match(passwordFormat) || value === '', 
+                        value, 
+                        'Password should have min 8 characters including special character, number and alphabets'
+                    );
                     break;   
                 case 'Number':
                     const numberFormat = /^\d*$/;
-                    if((value.match(numberFormat) && (parseInt(value) >= 100 && parseInt(value) <= 1000))  || value === '' ){
-                        setErrorMsg(null);
-                        props.onChangeInputValue(value);
-                    }else {
-                        setErrorMsg('please enter number between 100 - 1000');
-                    };
+                    setInput(
+                        (value.match(numberFormat) && (parseInt(value) >= 100 && parseInt(value) <= 1000))  || value === '' , 
+                        value, 
+                        'please enter number between 100 - 1000'
+                    );
                     break;
                 case 'Normal':
                     setErrorMsg(null);
