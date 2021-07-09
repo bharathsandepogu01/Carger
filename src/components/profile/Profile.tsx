@@ -23,7 +23,7 @@ const Profile = () => {
         useCallback(() => {
           dispatch(actionCreators.setInitialData());
           return () => {
-              dispatch(actionCreators.clearState());
+            //   console.log('profile Screen unfocused');
           };
         }, [])
       );
@@ -37,11 +37,11 @@ const Profile = () => {
     };
 
     const handleOnClickFuelPurchase = () => {
-        
+        navigation.navigate('PurchaseHistory');
     };
 
     const handleOnClickFeedBack = () => {
-
+        navigation.navigate('Feedback');
     };
 
     const handleOnClickLogOut = () => {
@@ -81,7 +81,7 @@ const Profile = () => {
                         />
                         <RouteHeadings
                             imagePath={require('@assets/images/BuyFuel.png')}
-                            onPress={handleOnClickLogOut}
+                            onPress={handleOnClickFuelPurchase}
                             routeHeaderName={'Purchase History'}
                             showArrow={true}
                         />

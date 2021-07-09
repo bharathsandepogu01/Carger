@@ -40,7 +40,6 @@ class actionCreators implements ProfileNS.IActionCreators {
             }
             try{
                 const profileDataApiResponse = await getProfileData(token);
-                console.log(profileDataApiResponse.data.gasTransactions[0]);
                 dispatch({
                     type: actionTypes.PROFILE_SET_INITIAL_DATA,
                     payload: {

@@ -68,4 +68,8 @@ declare namespace CommonComponentsNS {
         errorMessage?: string; 
     }
 
+    interface IEmptyProps {
+        message?: string;
+    }
+
 }
