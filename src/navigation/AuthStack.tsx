@@ -13,10 +13,10 @@ const AuthStack = () => {
                 headerShown: false,
             }}
         >
-            <Screen
+            {/* <Screen
                 name="SplashScreen"
                 component={SplashScreen}
-            />
+            /> */}
             <Screen 
                 name="Login" 
                 component={Login}

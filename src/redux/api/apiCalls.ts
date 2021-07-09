@@ -35,3 +35,18 @@ export const register = (
     );
     
 };
+
+export const getProfileData = (
+    token: string | null,
+):Promise<AxiosResponse<ApiResponseNS.IProfileDataApiResponse>> => {
+    
+    return axios.get(
+        `${url}/user/profile`,
+        {
+            headers: {
+                Authorization: token,
+            },
+        }
+    );
+    
+};

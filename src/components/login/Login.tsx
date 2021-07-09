@@ -79,7 +79,7 @@ const Login = ({
                 onInputValidationError={dispatchInputValidationError}
             />
             <CommonInput
-                inputTypeToValidate = {'Password'}
+                inputTypeToValidate = {'Normal'}
                 keyboardType={'default'}
                 inputValue={state.password}
                 onChangeInputValue={dispatchSetPassword}

@@ -9,7 +9,7 @@ declare namespace NavigationNS {
     type AuthStackParamsList = {
         Login: undefined,
         SignUp: undefined,
-        SplashScreen: undefined,
+        // SplashScreen: undefined,
     };
     
     /**

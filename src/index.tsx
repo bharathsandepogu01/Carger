@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {useSelector, useDispatch} from 'react-redux';
 
-import {BottomTabs, AuthStack} from '@navigation/index';
+import {AppStack, AuthStack} from '@navigation/index';
 import manageToken from '@utils/manageToken';
 import constants from '@utils/constants';
 
@@ -21,8 +21,8 @@ const NavContainer = () => {
 
   return (
       <NavigationContainer>
-        {state.token?(
-          <BottomTabs/>
+        {state.token!==null?(
+          <AppStack/>
         ):(
           <AuthStack/>
         )}

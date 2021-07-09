@@ -1,16 +1,16 @@
 import React from "react";
 import {View, Text} from 'react-native';
 
-import Styles from './Home.styles';
+import Styles from './WalletTransactions.styles';
 
-const Home = () => {
+const WalletTransactions = () => {
     return (
         <View>
             <Text style={Styles.text}>
-                {'Home Screen'}
+                {'Wallet Transactions Screen'}
             </Text>
         </View>
     );
 };
 
-export default Home;
+export default WalletTransactions;
