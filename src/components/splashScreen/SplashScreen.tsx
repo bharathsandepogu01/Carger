@@ -9,10 +9,14 @@ import Styles from './SplashScreen.styles';
 
 const SplashScreen = () => {
     const navigation = useNavigation<NavigationNS.SplashScreenAuthStackProps['navigation']>();
+    
     useEffect(() => {
-        setTimeout(() => {
+        const timeOut = setTimeout(() => {
             navigation.replace("Login");
         }, 3000);
+        return () => {
+            clearTimeout(timeOut);
+        }
     });
 
     return (

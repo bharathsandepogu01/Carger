@@ -30,8 +30,8 @@ const HomeScreenStack = () => {
                     headerTitleAlign: 'left',
                     headerTintColor: Colors.NEAR_WHITE,
                     headerTitleStyle : {
-                      fontFamily: Typography.FONT_FAMILY_BOLD,
-                      fontSize: Typography.FONT_SIZE_20,
+                      fontFamily: Typography.FONT_FAMILY_REGULAR,
+                      fontSize: Typography.FONT_SIZE_24,
                       letterSpacing: 4,
                     },
                     headerRight: () => {
