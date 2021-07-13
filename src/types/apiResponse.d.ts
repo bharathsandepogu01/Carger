@@ -36,4 +36,25 @@ declare namespace ApiResponseNS {
         username: string;
     }
 
-}
+    interface IGasStationsFuelDetails {
+        _id: string;
+        fuel: string;
+        price: number;
+        quantity: string;
+    }
+
+    interface IGasStationsApiData {
+        _id: string;
+        address: string; 
+        emergencyShutdown: boolean;
+        estimatedTime: string; 
+        fuelDetails: IGasStationsFuelDetails[]; 
+        id: string; 
+        latitude: string; 
+        longitude: string;
+        name: string; 
+        pendingTransactions: string; 
+        distance: number;
+    }
+
+}    

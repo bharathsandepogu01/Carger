@@ -30,7 +30,7 @@ export default StyleSheet.create({
     },
 
     infoContainer: {
-        height: '25%',
+        height: '35%',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 5,
@@ -71,7 +71,7 @@ export default StyleSheet.create({
         paddingLeft: 20,
         paddingRight: 20,
         borderRadius: 0,
-        ...Mixins.boxShadow(Colors.NEAR_WHITE),
+        ...Mixins.boxShadow('transparent', {height: 0, width: 0}),
     },
 
     rowContent: {
@@ -103,6 +103,12 @@ export default StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    profileImage: {
+        height: 70,
+        width: 70,
+        marginBottom: 10,
     },
 
 });

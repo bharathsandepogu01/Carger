@@ -37,11 +37,11 @@ const WalletTransactions = () => {
 
     const getTransactionTypeStyle = (amount: string, type: string) => {
         if(type === 'credit'){
-            return <Text style={[Styles.numberText]}>
+            return <Text style={[Styles.numberText, {color: Styles.borderLeftGreen.borderLeftColor}]}>
                         {`+ ${amount}`}
                     </Text>
         }else {
-            return <Text style={[Styles.numberText]}>{`- ${amount}`}</Text>
+            return <Text style={[Styles.numberText, {color: Styles.borderLeftRed.borderLeftColor}]}>{`- ${amount}`}</Text>
         }
     };
 

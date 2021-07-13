@@ -1,41 +1,44 @@
 import {Reducer} from 'redux';
 
-const initialState:ProfileNS.IState = {
-    profileData: null,
+const initialState:FuelStationsNS.IState = {
+    fuelStationsData: [],
     isFetchError: false,
     isLoading: false,
+    errorMessage: null,
 };
 
 const reducer:Reducer<
-    ProfileNS.IState,
-    ProfileNS.AllActions
+    FuelStationsNS.IState,
+    FuelStationsNS.AllActions
 > = (state = initialState, action) => {
     switch (action.type) {
-        case 'PROFILE_SET_INITIAL_DATA':
+        case 'FUEL_STATIONS_SET_INITIAL_DATA':
             return {
                 ...state,
-                profileData: action.payload.profileData,
+                fuelStationsData: action.payload.fuelStationsData,
                 isLoading: false,
                 isFetchError: false,
+                errorMessage: null,
             };
         
-        case 'PROFILE_SET_LOADER':
+        case 'FUEL_STATIONS_SET_LOADER':
             return {
                 ...state,
                 isLoading: action.payload.isLoading,
             };
 
-        case 'PROFILE_SET_FETCH_ERROR':
+        case 'FUEL_STATIONS_SET_FETCH_ERROR':
             return {
                 ...state,
                 isFetchError: action.payload.isFetchError,
                 isLoading: false,
-            };    
+                errorMessage: action.payload.errorMessage,
+            }    
 
-        case 'PROFILE_CLEAR_STATE':
+        case 'FUEL_STATIONS_CLEAR_STATE':
             return {
                 ...initialState,
-            }    
+            };    
 
         default:
             return state;

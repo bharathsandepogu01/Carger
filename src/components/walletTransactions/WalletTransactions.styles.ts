@@ -46,20 +46,20 @@ export default StyleSheet.create({
 
     typeText: {
         fontFamily: Typography.FONT_FAMILY_BOLD,
-        fontSize: Typography.FONT_SIZE_18,
+        fontSize: Typography.FONT_SIZE_16,
         color: Colors.NEAR_BLACK,
         marginBottom: 10,
     },
 
     dateText: {
         fontFamily: Typography.FONT_FAMILY_REGULAR,
-        fontSize: Typography.FONT_SIZE_16,
+        fontSize: Typography.FONT_SIZE_14,
         color: Colors.INACTIVE_TEXT,        
     },
 
     numberText: {
         fontFamily: Typography.FONT_FAMILY_BOLD,
-        fontSize: Typography.FONT_SIZE_22,
+        fontSize: Typography.FONT_SIZE_20,
         color: Colors.NEAR_BLACK,
         marginBottom: 5,
     }

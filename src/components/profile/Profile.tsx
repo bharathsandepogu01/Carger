@@ -1,5 +1,5 @@
 import React, {useCallback} from "react";
-import {View, Text, ActivityIndicator} from 'react-native';
+import {View, Text, ActivityIndicator, Image} from 'react-native';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {useSelector, useDispatch} from 'react-redux';
 
@@ -69,6 +69,7 @@ const Profile = () => {
                     />):
                     (<>
                     <View style={Styles.infoContainer}>
+                        <Image source={require('@assets/images/UserProfile.png')} style={Styles.profileImage}/>
                         <Text style={Styles.name}>{profileData?.username}</Text>
                         <Text style={Styles.email}>{profileData?.email}</Text>
                     </View>
@@ -85,12 +86,12 @@ const Profile = () => {
                             routeHeaderName={'Purchase History'}
                             showArrow={true}
                         />
-                        <RouteHeadings
+                        {/* <RouteHeadings
                             imagePath={require('@assets/images/FeedBack.png')}
                             onPress={handleOnClickFeedBack}
                             routeHeaderName={'Feedback'}
                             showArrow={true}
-                        />
+                        /> */}
                         <RouteHeadings
                             imagePath={require('@assets/images/LogOut.png')}
                             onPress={handleOnClickLogOut}

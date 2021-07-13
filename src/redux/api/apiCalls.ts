@@ -50,3 +50,24 @@ export const getProfileData = (
     );
     
 };
+
+export const getFuelStationsData = (
+    token: string | null,
+    latitude: number,
+    longitude: number,
+):Promise<AxiosResponse<ApiResponseNS.IGasStationsApiData[]>> => {
+    
+    return axios.post(
+        `${url}/user/gmap`,
+        {
+            lat: latitude,
+            lng: longitude,
+        },
+        {
+            headers: {
+                Authorization: token,
+            },
+        }
+    );
+    
+};
