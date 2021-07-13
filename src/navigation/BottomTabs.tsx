@@ -61,6 +61,7 @@ const BottomTabs = () => {
                     }
                 }
             })}
+            initialRouteName={'Profile'}
         >
             <Screen 
                 name="Home" 
@@ -75,7 +76,7 @@ const BottomTabs = () => {
             />
             <Screen 
                 name="Profile" 
-                component={ProfileComponent}     
+                component={ProfileComponent}
             />
         </Navigator>
     );

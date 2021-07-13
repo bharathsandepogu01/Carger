@@ -43,7 +43,7 @@ declare namespace CommonComponentsNS {
         disabled: boolean;
         onClick: (...args:any) => void;
         buttonStyle?: ViewStyle; 
-        name: string;
+        name?: string;
         isLoading?: boolean;
     }
 
@@ -57,6 +57,19 @@ declare namespace CommonComponentsNS {
         popupType: PopupType,
         isPopupOpen: boolean,
         popupModalOpen: (...args: any) => void;
+    }
+
+    interface ICommonBorderProps {
+        containerStyle?: ViewStyle;
+    }
+
+    interface IErrorProps {
+        onClick: (...args:any) => void;
+        errorMessage?: string; 
+    }
+
+    interface IEmptyProps {
+        message?: string;
     }
 
 }

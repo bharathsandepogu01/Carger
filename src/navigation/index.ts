@@ -1,7 +1,7 @@
 import AuthStack from "./AuthStack";
-import BottomTabs from "./BottomTabs";
+import AppStack from "./AppStack";
 
 export {
     AuthStack,
-    BottomTabs,
+    AppStack,
 };

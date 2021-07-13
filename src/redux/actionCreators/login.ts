@@ -42,7 +42,6 @@ class ActionCreators implements LoginNS.IActionCreators {
     setShowLoginErrorModal: LoginNS.IActionCreators['setShowLoginErrorModal'] = (
         isShowLoginErrorModal
     ) => {
-        console.log(isShowLoginErrorModal);
         return ({
             type: actionTypes.LOGIN_SET_SHOW_ERROR_MODAL,
             payload: {
@@ -66,6 +65,9 @@ class ActionCreators implements LoginNS.IActionCreators {
             try{
                 const getData = await login(appState.Login.email, appState.Login.password);
                 await manageToken.storeData(constants.JWT_TOKEN, getData.data, dispatch);
+                dispatch({
+                    type: actionTypes.LOGIN_CLEAR_STATE,
+                });
             }catch(error){
                 const errorMessage = await errorObjectHandling(error);
                 dispatch({
@@ -82,7 +84,6 @@ class ActionCreators implements LoginNS.IActionCreators {
     };
 
     clearState: LoginNS.IActionCreators['clearState'] = () => {
-        console.log("called clear state");
         return ({
             type: actionTypes.LOGIN_CLEAR_STATE,
         })

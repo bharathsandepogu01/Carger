@@ -1,7 +1,7 @@
 declare namespace ManageTokenNS {
     
     interface IState {
-        token: string | null;
+        token: any;
     }
 
     interface IActionTypes {
@@ -11,7 +11,7 @@ declare namespace ManageTokenNS {
     interface IATNSetToken {
         type: IActionTypes['MANAGE_TOKEN_SET_TOKEN'];
         payload: {
-            token: string | null;
+            token: any;
         };
     }
 
@@ -19,7 +19,7 @@ declare namespace ManageTokenNS {
        | IATNSetToken;
     interface IActionCreators {
         setToken: (
-            token: string | null,
+            token: any,
         ) => IATNSetToken;
     }
 

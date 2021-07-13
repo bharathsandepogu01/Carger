@@ -4,6 +4,8 @@ declare namespace ReduxNS {
     Login: LoginNS.IState;
     Register: RegisterNS.IState;
     ManageToken: ManageTokenNS.IState;
+    Profile: ProfileNS.IState;
+    FuelStations: FuelStationsNS.IState;
   }
 
   interface IThunkFunction<Actions> {

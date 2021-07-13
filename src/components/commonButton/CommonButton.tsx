@@ -11,7 +11,7 @@ import Styles from './CommonButton.styles';
 const CommonButton:React.FC<CommonComponentsNS.ICommonButtonProps> = (props) => {    
 
     const handleOnPress = (e: GestureResponderEvent) => {
-        props.onClick('Hello');
+        props.onClick();
     };
 
     const buttonDisabled = props.disabled ? Styles.buttonDisabled : null;
@@ -22,8 +22,10 @@ const CommonButton:React.FC<CommonComponentsNS.ICommonButtonProps> = (props) => 
             disabled = {props.disabled}
             onPress = {handleOnPress}
             activeOpacity={0.9}
-        >
-            <Text style={Styles.text}>{props.name}</Text>
+        >   
+            {props.name?(
+                <Text style={Styles.text}>{props.name}</Text>
+            ):(null)}
             {props.children}
             {props.isLoading?(
                 <ActivityIndicator 

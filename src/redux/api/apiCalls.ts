@@ -35,3 +35,39 @@ export const register = (
     );
     
 };
+
+export const getProfileData = (
+    token: string | null,
+):Promise<AxiosResponse<ApiResponseNS.IProfileDataApiResponse>> => {
+    
+    return axios.get(
+        `${url}/user/profile`,
+        {
+            headers: {
+                Authorization: token,
+            },
+        }
+    );
+    
+};
+
+export const getFuelStationsData = (
+    token: string | null,
+    latitude: number,
+    longitude: number,
+):Promise<AxiosResponse<ApiResponseNS.IGasStationsApiData[]>> => {
+    
+    return axios.post(
+        `${url}/user/gmap`,
+        {
+            lat: latitude,
+            lng: longitude,
+        },
+        {
+            headers: {
+                Authorization: token,
+            },
+        }
+    );
+    
+};

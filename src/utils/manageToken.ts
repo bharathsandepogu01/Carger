@@ -8,13 +8,12 @@ const manageTokenFunctions = () => {
     // store item
     const storeData = async (
         storageKey: string,
-        value: string | null,
+        value: any,
         dispatch: Dispatch<ManageTokenNS.AllActions>
     ) => {		
-        const stringifiedValue = JSON.stringify(value);
         try {
-            await AsyncStorage.setItem(storageKey, stringifiedValue);
-            dispatch(actionCreators.setToken(stringifiedValue));
+            await AsyncStorage.setItem(storageKey, value);
+            dispatch(actionCreators.setToken(value));
         } catch (e) {
             dispatch(actionCreators.setToken(null));
         }
@@ -28,9 +27,7 @@ const manageTokenFunctions = () => {
         try {
             const getAsyncStorageData = await AsyncStorage.getItem(storageKey);
             if(getAsyncStorageData!==null){
-                const getAsyncStorageParsed = JSON.parse(getAsyncStorageData);
-                dispatch(actionCreators.setToken(getAsyncStorageParsed));
-                return getAsyncStorageParsed;
+                dispatch(actionCreators.setToken(getAsyncStorageData));
             }else {
                 dispatch(actionCreators.setToken(null));
             }
