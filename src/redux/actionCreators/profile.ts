@@ -91,6 +91,14 @@ class actionCreators implements ProfileNS.IActionCreators {
         return async(dispatch, getState) => {
             const token = getState().ManageToken.token;
             const amount = getState().Profile.addMoneyInputValue;
+            if(!getState().Profile.isAddMoneyLoader){
+                dispatch({
+                    type: actionTypes.PROFILE_SET_ADD_MONEY_LOADER,
+                    payload: {
+                        isLoading: true,
+                    }
+                });
+            };
             try{
                 const getAddMoneyUrl = await addMoneyToWallet(token, amount);
                 dispatch({

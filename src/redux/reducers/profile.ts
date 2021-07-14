@@ -8,6 +8,7 @@ const initialState:ProfileNS.IState = {
     addMoneyInputValue: '', 
     addMoneyURL: null,
     addMoneyError: false,
+    isAddMoneyLoader: false,
 };
 
 const reducer:Reducer<
@@ -28,6 +29,12 @@ const reducer:Reducer<
                 ...state,
                 isLoading: action.payload.isLoading,
             };    
+
+        case 'PROFILE_SET_ADD_MONEY_LOADER':
+            return {
+                ...state,
+                isAddMoneyLoader: action.payload.isLoading,
+            }    
 
         case 'PROFILE_SET_FETCH_ERROR':
             return {
@@ -60,6 +67,7 @@ const reducer:Reducer<
                 ...state,
                 addMoneyURL: action.payload.addMoneyURL,
                 addMoneyInputValue: '',
+                isAddMoneyLoader: false,
             }    
 
         case 'PROFILE_CLEAR_STATE':

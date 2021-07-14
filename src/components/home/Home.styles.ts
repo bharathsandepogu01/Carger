@@ -210,4 +210,10 @@ export default StyleSheet.create({
     emptyContainer: {
         marginTop: 40,
     },
+
+    plusText: {
+        color: Colors.NEAR_WHITE,
+        fontFamily: Typography.FONT_FAMILY_REGULAR,
+        fontSize: Typography.FONT_SIZE_24,
+    }
 });

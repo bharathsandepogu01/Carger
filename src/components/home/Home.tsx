@@ -137,8 +137,10 @@ const Home = () => {
                                     disabled={buttonDisability}
                                     onClick={dispatchAddMoneyToWalletURL}
                                     buttonStyle={[Styles.button, buttonDisability?(Styles.buttonDisabled):(null)]}
-                                    name={'+'}
-                                />
+                                    isLoading={state.isAddMoneyLoader}
+                                >
+                                    {!state.isAddMoneyLoader?<Text style={Styles.plusText}>{'+'}</Text>:null}
+                                </CommonButton>
                             </View>
                         </View>
                         <TransactionsList

@@ -15,11 +15,13 @@ declare namespace ProfileNS {
         addMoneyInputValue: string;
         addMoneyURL: string | null;
         addMoneyError: boolean;
+        isAddMoneyLoader: boolean;
     }
 
     interface IActionTypes {
         PROFILE_SET_INITIAL_DATA: 'PROFILE_SET_INITIAL_DATA';
         PROFILE_SET_LOADER: 'PROFILE_SET_LOADER';
+        PROFILE_SET_ADD_MONEY_LOADER: 'PROFILE_SET_ADD_MONEY_LOADER';
         PROFILE_SET_FETCH_ERROR: 'PROFILE_SET_FETCH_ERROR';
         PROFILE_SET_INPUT_VALIDATION_ERROR: 'PROFILE_SET_INPUT_VALIDATION_ERROR';
         PROFILE_SET_ADD_MONEY_ERROR: 'PROFILE_SET_ADD_MONEY_ERROR';
@@ -39,6 +41,13 @@ declare namespace ProfileNS {
 
     interface IATNSetLoader {
         type: IActionTypes['PROFILE_SET_LOADER'];
+        payload: {
+            isLoading: boolean;
+        }
+    }
+
+    interface IATNSetAddMoneyLoader {
+        type: IActionTypes['PROFILE_SET_ADD_MONEY_LOADER'];
         payload: {
             isLoading: boolean;
         }
@@ -92,6 +101,7 @@ declare namespace ProfileNS {
         | IATNSetAddMoneyInput
         | IATNSetAddMoneyURL
         | IATNSetAddMoneyError
+        | IATNSetAddMoneyLoader
         | IATNClearState;
 
     interface IActionCreators {
