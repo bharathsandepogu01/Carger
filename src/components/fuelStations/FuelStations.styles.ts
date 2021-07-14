@@ -11,7 +11,7 @@ export default StyleSheet.create({
 
     cardDisplay: {
         height: 120,
-        width: '95%',
+        width: '90%',
         alignSelf: 'center',
         backgroundColor: Colors.NEAR_WHITE,
         ...Mixins.boxShadow(Colors.NEAR_BLACK),

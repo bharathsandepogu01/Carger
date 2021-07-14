@@ -3,7 +3,7 @@ import {Reducer} from 'redux';
 const initialState:FuelStationsNS.IState = {
     fuelStationsData: [],
     isFetchError: false,
-    isLoading: false,
+    isLoading: true,
     errorMessage: null,
 };
 

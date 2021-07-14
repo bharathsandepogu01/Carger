@@ -71,3 +71,21 @@ export const getFuelStationsData = (
     );
     
 };
+
+export const addMoneyToWallet = (
+    token: string | null,
+    amount: string,
+):Promise<AxiosResponse<ApiResponseNS.IAddMoneyUrlResponse>> => {
+    return axios.post(
+        `${url}/user/add_money_to_wallet`,
+        {
+            amount: amount,
+        },
+        {
+            headers: {
+                Authorization: token,
+            },
+        }
+
+    )
+}

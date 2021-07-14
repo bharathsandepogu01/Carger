@@ -57,4 +57,8 @@ declare namespace ApiResponseNS {
         distance: number;
     }
 
+    interface IAddMoneyUrlResponse {
+        link: string;
+    }
+
 }    
