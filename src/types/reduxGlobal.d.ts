@@ -1,6 +1,5 @@
 declare namespace ReduxNS {
   interface IState {
-    UserData: UserDataNS.IState;
     Login: LoginNS.IState;
     Register: RegisterNS.IState;
     ManageToken: ManageTokenNS.IState;
