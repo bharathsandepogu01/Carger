@@ -61,7 +61,6 @@ const BottomTabs = () => {
                     }
                 }
             })}
-            initialRouteName={'Profile'}
         >
             <Screen 
                 name="Home" 

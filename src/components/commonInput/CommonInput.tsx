@@ -78,7 +78,7 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
                 case 'Number':
                     const numberFormat = /^\d*$/;
                     setInput(
-                        (value.match(numberFormat) && (parseInt(value) >= 100 && parseInt(value) <= 1000))  || value === '' , 
+                        (value.match(numberFormat) && (parseInt(value) >= 0 && parseInt(value) <= 1000))  || value === '' , 
                         value, 
                         'please enter number between 100 - 1000'
                     );
@@ -90,7 +90,7 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
                 default : 
                     break;        
             };
-    }, 500), []);
+    }, 400), []);
 
     const handleOnChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         const value = e.nativeEvent.text;

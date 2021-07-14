@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 
 import actionTypes from '../actionTypes/profile';
-import {getProfileData} from '@redux/api/apiCalls';
+import {getProfileData, addMoneyToWallet} from '@redux/api/apiCalls';
 import { errorObjectHandling } from '@utils/errorObjectHandling';
 import manageToken from '@utils/manageToken';
 import constants from '@utils/constants';
@@ -66,6 +66,76 @@ class actionCreators implements ProfileNS.IActionCreators {
             }
         }
     }
+
+    setInputValidationError: ProfileNS.IActionCreators['setInputValidationError'] = () => {
+        return({
+            type: actionTypes.PROFILE_SET_INPUT_VALIDATION_ERROR,
+            payload: {
+                isInputValidationError: true,
+            }
+        });
+    }
+
+    setAddMoneyInput: ProfileNS.IActionCreators['setAddMoneyInput'] = (
+        inputValue
+    ) => {
+        return({
+            type: actionTypes.PROFILE_SET_ADD_MONEY_INPUT,
+            payload: {
+                inputValue,
+            }
+        });
+    }
+
+    addMoney: ProfileNS.IActionCreators['addMoney'] = () => {
+        return async(dispatch, getState) => {
+            const token = getState().ManageToken.token;
+            const amount = getState().Profile.addMoneyInputValue;
+            try{
+                const getAddMoneyUrl = await addMoneyToWallet(token, amount);
+                dispatch({
+                    type: actionTypes.PROFILE_SET_ADD_MONEY_URL,
+                    payload: {
+                        addMoneyURL: getAddMoneyUrl.data.link
+                    },
+                })
+            }catch(error){
+                const getErrorData = await errorObjectHandling(error);
+                if(getErrorData === 'invalid token'){
+                    manageToken.clearToken(constants.JWT_TOKEN, dispatch);
+                }else {
+                    dispatch({
+                        type: actionTypes.PROFILE_SET_ADD_MONEY_ERROR,
+                        payload: {
+                            addMoneyError: true,
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    setAddMoneyError: ProfileNS.IActionCreators['setAddMoneyError'] = (
+        addMoneyError
+    ) => {
+        return ({
+            type: actionTypes.PROFILE_SET_ADD_MONEY_ERROR,
+            payload: {
+                addMoneyError,
+            }
+        });
+    } 
+
+    setAddMoneyURL: ProfileNS.IActionCreators['setAddMoneyURL'] = (
+        addMoneyURL
+    ) => {
+        return ({
+            type: actionTypes.PROFILE_SET_ADD_MONEY_URL,
+            payload: {
+                addMoneyURL,
+            }
+        });
+    } 
 
     clearState: ProfileNS.IActionCreators['clearState'] = () => {
         return ({

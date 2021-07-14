@@ -9,6 +9,8 @@ export const FONT_WEIGHT_REGULAR = '400';
 export const FONT_WEIGHT_BOLD = '700';
 
 // FONT SIZE
+export const FONT_SIZE_60 = scaleFont(60);
+export const FONT_SIZE_70 = scaleFont(70);
 export const FONT_SIZE_50 = scaleFont(50);
 export const FONT_SIZE_32 = scaleFont(32);
 export const FONT_SIZE_30 = scaleFont(30);

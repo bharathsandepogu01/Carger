@@ -15,7 +15,7 @@ const WalletTransactions = () => {
     ) => state.Profile);
 
     const {profileData} = state;
-    const transactions = profileData?profileData.eWalletTransactions:[];
+    const transactions = profileData!==null?_.reverse(profileData.eWalletTransactions):[];
 
     const getBorderColor = (type:string) => {
         switch(type) {
