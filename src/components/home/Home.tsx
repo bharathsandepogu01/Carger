@@ -1,6 +1,6 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect} from "react";
 import _ from 'lodash';
-import {View, Text, Image, ActivityIndicator, Modal, Linking} from 'react-native';
+import {View, Text, Image, ActivityIndicator, Linking} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useFocusEffect} from '@react-navigation/native';
 
@@ -14,8 +14,6 @@ import CommonPopup from "@components/commonPopup/CommonPopup";
 import Styles from './Home.styles';
 
 const Home = () => {
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const state:ProfileNS.IState = useSelector((
         state:ReduxNS.IState
@@ -32,9 +30,17 @@ const Home = () => {
 
     useEffect(()=>{
         if(state.addMoneyURL!==null){
-            setIsModalOpen(true);
-        }else {
-            setIsModalOpen(false);
+            (async () => {
+                const url = state.addMoneyURL?state.addMoneyURL:'';
+                const supported = await Linking.canOpenURL(url);
+                if(supported) {
+                    await Linking.openURL(url);
+                    dispatchSetAddMoneyURL(null);
+                }else {
+                    dispatchSetAddMoneyError(true);
+                    dispatchSetAddMoneyURL(null);
+                }
+            })();    
         }
     }, [state.addMoneyURL]);
 
@@ -68,18 +74,6 @@ const Home = () => {
         dispatch(actionCreators.setAddMoneyURL(addMoneyURL));
     };
 
-    const handleStartTransaction = useCallback(async () => {
-        const url = state.addMoneyURL?state.addMoneyURL:'';
-        const supported = await Linking.canOpenURL(url);
-        if(supported) {
-            await Linking.openURL(url);
-            dispatchSetAddMoneyURL(null);
-        }else {
-            dispatchSetAddMoneyError(true);
-            dispatchSetAddMoneyURL(null);
-        }
-      }, [state.addMoneyURL!==null]);
-
     return (
         <View style={Styles.mainContainer}>
             <CommonPopup
@@ -88,22 +82,6 @@ const Home = () => {
                 isPopupOpen={state.addMoneyError}
                 popupModalOpen={dispatchSetAddMoneyError}
             />
-            <Modal
-                animationType={'fade'}
-                transparent={true}
-                visible={isModalOpen}
-            >
-                <View style={Styles.modalContainer}>
-                    <Text style={[Styles.transactionsHeading, Styles.paddingZero]}>{'Complete your transaction'}</Text>
-                    <CommonButton
-                        disabled={false}
-                        onClick={handleStartTransaction}
-                        buttonStyle={Styles.startTransactionButton}
-                        name={'proceed'}
-                    >
-                    </CommonButton>
-                </View>
-            </Modal>
             {state.isFetchError?
                     (<Error
                         onClick={dispatchSetInitialData}
