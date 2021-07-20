@@ -66,10 +66,16 @@ declare namespace CommonComponentsNS {
     interface IErrorProps {
         onClick: (...args:any) => void;
         errorMessage?: string; 
+        isLoading?: boolean;
     }
 
     interface IEmptyProps {
         message?: string;
+    }
+
+    interface ICommonFuelTypeProps {
+        fuelType: string;
+        positionClassName?: ViewStyle; 
     }
 
 }

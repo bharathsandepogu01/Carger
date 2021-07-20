@@ -61,8 +61,8 @@ const FuelStations = () => {
         }, [])
     ); 
 
-    const navigateToBuyFuel = () => {
-        console.log('navigation function');
+    const dispatchSetSelectedFuelStation = (fuelStationID: string) => {
+        dispatch(actionCreators.setSelectedFuelStation(fuelStationID, navigation));
     };
 
     const {fuelStationsData} = state;
@@ -87,7 +87,7 @@ const FuelStations = () => {
             />):
             (<FuelStationsList 
                 fuelStationsData={fuelStationsData}
-                navigationFunction={navigateToBuyFuel}
+                navigationFunction={dispatchSetSelectedFuelStation}
             />)}
         </View>
     );

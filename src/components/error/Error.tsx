@@ -17,6 +17,7 @@ const Error = (props: CommonComponentsNS.IErrorProps) => {
                 onClick={props.onClick}
                 buttonStyle={Styles.buttonStyle}
                 name={'Retry'}
+                isLoading={props.isLoading}
             />
         </View>
     );
