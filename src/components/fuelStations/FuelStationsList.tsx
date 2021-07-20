@@ -4,25 +4,11 @@ import {View, Text, FlatList} from 'react-native';
 
 import EmptyData from "@components/emptyData";
 import CommonButton from "@components/commonButton";
+import CommonFuelType from "@components/commonFuelType";
 
 import Styles from './FuelStations.styles';
 
 const FuelStationsList = (props: FuelStationsNS.IFuelStationsListProps) => {
-
-
-    const getFuelTypeStyle = (
-        fuelTypeDetails: ApiResponseNS.IGasStationsFuelDetails,
-        key: React.Key,
-    ) => {
-        switch(fuelTypeDetails.fuel){
-            case 'Petrol':
-                return <Text key={key} style={[Styles.commonFuelType, Styles.petrolColor]}>{'P'}</Text>;
-            case 'Diesel':
-                return <Text key={key} style={[Styles.commonFuelType, Styles.dieselColor]}>{'D'}</Text>;;
-            case 'CNG':
-                return <Text key={key} style={[Styles.commonFuelType, Styles.cngColor]}>{'G'}</Text>;        
-        }
-    }
 
     const {fuelStationsData} = props;
 
@@ -43,12 +29,15 @@ const FuelStationsList = (props: FuelStationsNS.IFuelStationsListProps) => {
                             <View style={Styles.rightContent}>
                                 <View style={Styles.flexRow}>
                                 {_.map(item.fuelDetails, (eachFuelDetail, key) => {
-                                    return getFuelTypeStyle(eachFuelDetail, key);
+                                    return <CommonFuelType
+                                                fuelType={eachFuelDetail.fuel}
+                                                key={key}
+                                            />
                                 })}
                                 </View>
                                 <CommonButton
                                     disabled={false}
-                                    onClick={props.navigationFunction}
+                                    onClick={() => props.navigationFunction(item._id)}
                                     name={'Buy'}
                                     buttonStyle={Styles.button}
                                 />

@@ -80,7 +80,7 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
                     setInput(
                         (value.match(numberFormat) && (parseInt(value) >= 0 && parseInt(value) <= 1000))  || value === '' , 
                         value, 
-                        'please enter number between 100 - 1000'
+                        'please enter number between 1 - 1000'
                     );
                     break;
                 case 'Normal':

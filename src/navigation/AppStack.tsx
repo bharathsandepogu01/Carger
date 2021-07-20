@@ -5,6 +5,7 @@ import BottomTabs from './BottomTabs';
 import WalletTransactions from '@components/walletTransactions';
 import PurchaseHistory from '@components/purchaseHistory';
 import Feedback from '@components/feedback';
+import PurchaseFuel from '@components/purchaseFuel';
 import { Colors, Mixins, Typography } from '@styles/index';
 
 const AppStack = () => {
@@ -24,7 +25,7 @@ const AppStack = () => {
             }}
         >
             <Screen
-                name="Home"
+                name="HomeTabs"
                 component={BottomTabs}
                 options={{
                     headerShown: false,
@@ -49,6 +50,13 @@ const AppStack = () => {
                 component={Feedback}
                 options={{
                     title: 'Feedback',
+                }}
+            />
+            <Screen 
+                name="PurchaseFuel" 
+                component={PurchaseFuel}
+                options={{
+                    title: 'Buy Fuel',
                 }}
             />
         </Navigator>

@@ -1,4 +1,5 @@
 import axios, {AxiosResponse} from 'axios';
+import { parseInt } from 'lodash';
 
 import {url} from './url';
 
@@ -11,6 +12,9 @@ export const login = (
         {
             email: email,
             hashedPassword: password, 
+        },
+        {
+            timeout: 4000,
         }
     );
 };
@@ -32,6 +36,9 @@ export const register = (
     return axios.post(
         `${url}/user/register`,
         registerPayload,
+        {
+            timeout: 4000,
+        }
     );
     
 };
@@ -46,6 +53,7 @@ export const getProfileData = (
             headers: {
                 Authorization: token,
             },
+            timeout: 4000,
         }
     );
     
@@ -67,6 +75,7 @@ export const getFuelStationsData = (
             headers: {
                 Authorization: token,
             },
+            timeout: 4000,
         }
     );
     
@@ -85,6 +94,32 @@ export const addMoneyToWallet = (
             headers: {
                 Authorization: token,
             },
+            timeout: 4000,
+        }
+
+    )
+};
+
+export const purchaseFuelAPICall = (
+    token: string | null,
+    name: string,
+    type: FuelStationsNS.FuelType,
+    quantity: string,
+    total: string,
+):Promise<AxiosResponse<any>> => {
+    return axios.post(
+        `${url}/user/gas_trans`,
+        {
+            name,
+            type,
+            quantity: parseInt(quantity),
+            total: parseInt(total),
+        },
+        {
+            headers: {
+                Authorization: token,
+            },
+            timeout: 4000,
         }
 
     )

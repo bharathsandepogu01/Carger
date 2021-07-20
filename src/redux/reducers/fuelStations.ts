@@ -5,6 +5,7 @@ const initialState:FuelStationsNS.IState = {
     isFetchError: false,
     isLoading: true,
     errorMessage: null,
+    selectedFuelStation: null,
 };
 
 const reducer:Reducer<
@@ -26,6 +27,12 @@ const reducer:Reducer<
                 ...state,
                 isLoading: action.payload.isLoading,
             };
+         
+        case 'FUEL_STATIONS_SET_SELECTED_FUEL_STATION':
+            return {
+                ...state,
+                selectedFuelStation: action.payload.selectedFuelStation,
+            }; 
 
         case 'FUEL_STATIONS_SET_FETCH_ERROR':
             return {

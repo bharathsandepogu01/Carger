@@ -15,7 +15,7 @@ const PurchaseHistory = () => {
     ) => state.Profile);
 
     const {profileData} = state;
-    const gasTransactions = profileData!==null?_.reverse(profileData.gasTransactions):[];
+    const gasTransactions = profileData!==null?_.orderBy(profileData.gasTransactions, ['updatedAt'], ['desc']):[];
 
     const getBorderColor = (status:string) => {
         switch(status) {

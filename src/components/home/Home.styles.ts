@@ -160,30 +160,6 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
 
-    commonFuelType: {
-        height: 20,
-        width: 20,
-        marginRight: 5,
-        marginLeft: 10,
-        borderRadius: 100,
-        backgroundColor: 'red',
-        textAlign: 'center',
-        fontFamily: Typography.FONT_FAMILY_BOLD,
-        color: Colors.NEAR_BLACK,
-    },
-    
-    petrolColor: {
-        backgroundColor: Colors.PETROL,
-    },
-
-    dieselColor: {
-        backgroundColor: Colors.DIESEL,
-    },
-
-    cngColor: {
-        backgroundColor: Colors.CNG,
-    },
-
     activityIndicator: {
         flex: 1,
         alignContent: 'center',

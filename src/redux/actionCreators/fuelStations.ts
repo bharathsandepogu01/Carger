@@ -5,7 +5,7 @@ import actionTypes from '../actionTypes/fuelStations';
 import { errorObjectHandling } from '@utils/errorObjectHandling';
 import manageToken from '@utils/manageToken';
 import constants from '@utils/constants';
-import {getFuelStationsData} from '@redux/api/apiCalls';
+import {getFuelStationsData, purchaseFuelAPICall} from '@redux/api/apiCalls';
 
 class actionCreators implements FuelStationsNS.IActionCreators {
 
@@ -64,6 +64,34 @@ class actionCreators implements FuelStationsNS.IActionCreators {
         };
     }
 
+    dispatchSetFuelStation = (
+        dispatch: Dispatch<FuelStationsNS.AllActions>,
+        selectedFuelStation: FuelStationsNS.IState['selectedFuelStation'],
+    ) => {
+        dispatch({
+            type: actionTypes.FUEL_STATIONS_SET_SELECTED_FUEL_STATION,
+            payload: {
+                selectedFuelStation,
+            },
+        });
+    }
+
+    setSelectedFuelStation: FuelStationsNS.IActionCreators['setSelectedFuelStation'] = (
+        fuelStationID,
+        navigation
+    ) => {
+        return async(dispatch, getState) => {
+            const fuelStationsData = _.cloneDeep(getState().FuelStations.fuelStationsData);
+            const selectedFuelStation = _.filter(fuelStationsData, {'_id': fuelStationID});
+            if(selectedFuelStation.length > 0) {
+                this.dispatchSetFuelStation(dispatch, selectedFuelStation[0]);
+                navigation.navigate('PurchaseFuel');
+            }else {
+                this.dispatchSetFuelStation(dispatch, null);
+            }
+        }
+    }
+
     setError: FuelStationsNS.IActionCreators['setError'] = (
         isError,
         errorMessage
@@ -76,6 +104,39 @@ class actionCreators implements FuelStationsNS.IActionCreators {
             }
         });
     };
+
+    purchaseFuel: FuelStationsNS.IActionCreators['purchaseFuel'] = (
+        name,
+        type,
+        quantity,
+        total,
+        navigation,
+    ) => {
+        return async(dispatch, getState) => {
+            const token = getState().ManageToken.token;
+            if(!getState().Profile.isLoading){
+                this.dispatchSetLoader(dispatch, true);
+            }
+            try{   
+                const purchaseFuelResponse = await purchaseFuelAPICall(
+                    token,
+                    name,
+                    type,
+                    quantity,
+                    total,
+                );
+                this.dispatchSetLoader(dispatch, false);
+                navigation.navigate('Home');
+            }catch(error){
+                const getErrorData = await errorObjectHandling(error);
+                if(getErrorData === 'invalid token'){
+                    manageToken.clearToken(constants.JWT_TOKEN, dispatch);
+                }else {
+                    this.dispatchSetFetchError(dispatch, true, getErrorData);
+                }
+            }
+        };
+    }
 
     clearState: FuelStationsNS.IActionCreators['clearState'] = () => {
         return ({

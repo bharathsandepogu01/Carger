@@ -46,6 +46,7 @@ export default StyleSheet.create({
     rightContent: {
         alignItems: 'center',
         justifyContent: 'flex-start',
+        marginTop: 10,
     },
 
     button: {
@@ -64,31 +65,6 @@ export default StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
-    },
-
-    commonFuelType: {
-        height: 20,
-        width: 20,
-        marginRight: 5,
-        marginLeft: 5,
-        marginTop: 10,
-        borderRadius: 100,
-        backgroundColor: 'red',
-        textAlign: 'center',
-        fontFamily: Typography.FONT_FAMILY_BOLD,
-        color: Colors.NEAR_BLACK,
-    },
-    
-    petrolColor: {
-        backgroundColor: Colors.PETROL,
-    },
-
-    dieselColor: {
-        backgroundColor: Colors.DIESEL,
-    },
-
-    cngColor: {
-        backgroundColor: Colors.CNG,
     },
 
     text: {
