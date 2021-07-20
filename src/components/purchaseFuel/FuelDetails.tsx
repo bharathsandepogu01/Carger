@@ -19,7 +19,7 @@ const FuelDetails = (props: FuelStationsNS.IFuelDetails) => {
                             <Text style={Styles.fuelType}>{`${eachFuelDetail.fuel}`}</Text>    
                         </View> 
                         <Text style={Styles.fuelDetails}>{`${eachFuelDetail.quantity} Litres`}</Text>
-                        <Text style={Styles.fuelDetails}>{`Rs ${eachFuelDetail.price}/Litre`}</Text>
+                        <Text style={Styles.fuelDetails}>{`Rs ${_.round(eachFuelDetail.price, 2)}/Litre`}</Text>
                     </View>
                 );
             })}

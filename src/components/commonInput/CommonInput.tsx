@@ -76,7 +76,7 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
                     );
                     break;   
                 case 'Number':
-                    const numberFormat = /^\d*$/;
+                    const numberFormat = /^(?!0\d)\d*(\.\d+)?$/;
                     setInput(
                         (value.match(numberFormat) && (parseInt(value) >= 0 && parseInt(value) <= 1000))  || value === '' , 
                         value, 
@@ -109,8 +109,8 @@ const CommonInput = (props: CommonComponentsNS.ICommonInputProps) => {
                 style={[Styles.textInput, borderStyle]}
                 placeholder={props.placeHolder}
                 placeholderTextColor={Styles.textInputInactive.borderColor}
-                autoFocus={false}
                 secureTextEntry={props.secureTextEntry}
+                autoFocus={false}
             />
             <Text style={Styles.errorText}>{errorMsg}</Text>
         </View>

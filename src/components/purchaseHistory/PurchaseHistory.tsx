@@ -57,7 +57,7 @@ const PurchaseHistory = () => {
                                     <Text style={Styles.dateText}>{`${getDate(item.createdAt)} | ${item.status}`}</Text>
                                 </View>
                                 <View style={Styles.alignCenter}>
-                                    <Text style={[Styles.numberText]}>{`${item.cost}`}</Text>
+                                    <Text style={[Styles.numberText]}>{`${_.round(item.cost, 2)}`}</Text>
                                     <Text style={Styles.dateText}>{`${item.quantity}L ${item.fuelType}`}</Text>
                                 </View>
                             </View>

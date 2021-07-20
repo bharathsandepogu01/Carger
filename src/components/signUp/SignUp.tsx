@@ -79,7 +79,7 @@ const SignUp = ({
                 popupModalOpen={dispatchShowRegisterErrorModal}
             />
             <CommonInput
-                inputTypeToValidate = {'Name'}
+                inputTypeToValidate = {'Normal'}
                 keyboardType={'default'}
                 inputValue={state.name}
                 onChangeInputValue={dispatchSetName}
@@ -89,7 +89,7 @@ const SignUp = ({
             />
             <CommonInput
                 inputTypeToValidate = {'Email'}
-                keyboardType={'email-address'}
+                keyboardType={'default'}
                 inputValue={state.email}
                 onChangeInputValue={dispatchSetEmail}
                 placeHolder={'Email'}

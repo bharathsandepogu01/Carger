@@ -71,7 +71,7 @@ const Login = ({
             />
             <CommonInput
                 inputTypeToValidate = {'Email'}
-                keyboardType={'email-address'}
+                keyboardType={'default'}
                 inputValue={state.email}
                 onChangeInputValue={dispatchSetEmail}
                 placeHolder={'Email'}

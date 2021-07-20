@@ -1,1 +1,1 @@
-export const url = 'http://192.168.0.125:8008';
+export const url = 'https://carger.herokuapp.com';

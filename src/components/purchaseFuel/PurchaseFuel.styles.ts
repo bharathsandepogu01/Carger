@@ -26,7 +26,7 @@ export default StyleSheet.create({
         borderRadius: Spacing.RADIUS,
         justifyContent: 'space-around',
         borderColor: Colors.PRIMARY,
-        borderWidth: 0.5,
+        borderWidth: 0.2,
     },
 
     fuelStationName: {

@@ -112,8 +112,8 @@ export const purchaseFuelAPICall = (
         {
             name,
             type,
-            quantity: parseInt(quantity),
-            total: parseInt(total),
+            quantity: parseFloat(quantity),
+            total: parseFloat(total),
         },
         {
             headers: {

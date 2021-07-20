@@ -1,7 +1,5 @@
 import React from "react";
 import {View, Text, FlatList, ScrollView} from 'react-native';
-import {useSelector} from 'react-redux';
-import moment from 'moment';
 import _ from 'lodash';
 
 import EmptyData from "@components/emptyData";
@@ -32,7 +30,7 @@ const TransactionsList = (props: ProfileNS.ITransactionsListProps) => {
                                     </View>
                                 </View>
                                 <View style={Styles.alignCenter}>
-                                    <Text style={[Styles.numberText]}>{`${item.cost}`}</Text>
+                                    <Text style={[Styles.numberText]}>{`${_.round(item.cost, 2)}`}</Text>
                                     <Text style={Styles.dateTextBold}>{`OTP: ${item.otp}`}</Text>
                                 </View>
                             </View>

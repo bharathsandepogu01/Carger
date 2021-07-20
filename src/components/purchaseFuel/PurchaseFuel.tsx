@@ -42,7 +42,7 @@ const PurchaseFuel = () => {
 
     const selectedFuelType = _.filter(selectedFuelStation?.fuelDetails, {'fuel': selectedFuel})[0];
 
-    const totalCost = quantity!==''?String(selectedFuelType.price*(parseInt(quantity))):'';
+    const totalCost = quantity!==''?String(selectedFuelType.price*(parseFloat(quantity))):'';
 
     const buttonDisability = (quantity === ''); 
 

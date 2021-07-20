@@ -38,10 +38,10 @@ const WalletTransactions = () => {
     const getTransactionTypeStyle = (amount: string, type: string) => {
         if(type === 'credit'){
             return <Text style={[Styles.numberText, {color: Styles.borderLeftGreen.borderLeftColor}]}>
-                        {`+ ${amount}`}
+                        {`+ ${_.round(parseFloat(amount),2)}`}
                     </Text>
         }else {
-            return <Text style={[Styles.numberText, {color: Styles.borderLeftRed.borderLeftColor}]}>{`- ${amount}`}</Text>
+            return <Text style={[Styles.numberText, {color: Styles.borderLeftRed.borderLeftColor}]}>{`- ${_.round(parseFloat(amount), 2)}`}</Text>
         }
     };
 
