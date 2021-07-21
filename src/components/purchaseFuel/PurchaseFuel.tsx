@@ -63,30 +63,33 @@ const PurchaseFuel = () => {
                     fuelStationName={selectedFuelStation.name}
                 />
                 <View style={Styles.viewFlexRowSpaceEven}>
-                    <TouchableOpacity
-                        style={[Styles.viewFlexRow, getBackGroundColor('Petrol')]}
-                        onPress={() => setSelectedFuel('Petrol')}
-                        activeOpacity={0.9}
-                    >
-                        <CommonFuelType fuelType={'Petrol'}/>
-                        <Text style={[Styles.fuelType, {color: getBackGroundColor('Petrol').color}]}>{'Petrol'}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[Styles.viewFlexRow, getBackGroundColor('Diesel')]}
-                        onPress={() => setSelectedFuel('Diesel')}
-                        activeOpacity={0.9}
-                    >
-                        <CommonFuelType fuelType={'Diesel'}/>
-                        <Text style={[Styles.fuelType, {color: getBackGroundColor('Diesel').color}]}>{'Diesel'}</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={[Styles.viewFlexRow, getBackGroundColor('CNG')]}
-                        onPress={() => setSelectedFuel('CNG')}
-                        activeOpacity={0.9}
-                    >
-                        <CommonFuelType fuelType={'CNG'}/>
-                        <Text style={[Styles.fuelType, {color: getBackGroundColor('CNG').color}]}>{'CNG'}</Text>
-                    </TouchableOpacity>
+                    {_.map(selectedFuelStation.fuelDetails, (eachFuelDetail, key) => {
+                        if(eachFuelDetail.quantity !== '0') {
+                            let fuelType:FuelStationsNS.FuelType = 'Petrol';
+                            switch(eachFuelDetail.fuel){
+                                case 'Petrol':
+                                    fuelType = 'Petrol';
+                                    break;
+                                case 'Diesel':
+                                    fuelType = 'Diesel';
+                                    break;     
+                                case 'CNG':
+                                    fuelType = 'CNG';
+                                    break;
+                            };
+                            return (
+                                <TouchableOpacity
+                                    style={[Styles.viewFlexRow, getBackGroundColor(fuelType)]}
+                                    onPress={() => setSelectedFuel(fuelType)}
+                                    activeOpacity={0.9}
+                                    key={key}
+                                >
+                                    <CommonFuelType fuelType={fuelType}/>
+                                    <Text style={[Styles.fuelType, {color: getBackGroundColor(fuelType).color}]}>{fuelType}</Text>
+                                </TouchableOpacity>
+                            );
+                        }
+                    })}
                 </View>
                 <CommonInput
                     inputTypeToValidate={'Number'}

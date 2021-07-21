@@ -21,6 +21,10 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        borderWidth: 0.3,
+        borderTopColor: Colors.LIGHT_GREY,
+        borderRightColor: Colors.LIGHT_GREY,
+        borderBottomColor: Colors.LIGHT_GREY,
     },
 
     alignCenter: {

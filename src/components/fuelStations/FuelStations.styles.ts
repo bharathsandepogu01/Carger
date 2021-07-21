@@ -15,11 +15,16 @@ export default StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: Colors.NEAR_WHITE,
         ...Mixins.boxShadow(Colors.NEAR_BLACK),
-        padding: 15,
+        paddingLeft: 5,
+        paddingRight: 15,
+        paddingTop: 15,
+        paddingBottom: 15,
         marginTop: 10,
         marginBottom: 20,
         alignItems: 'center',
         borderRadius: Spacing.RADIUS,
+        borderWidth: 0.3,
+        borderColor: Colors.LIGHT_GREY,
     },
 
     mainHeading: {
@@ -36,6 +41,7 @@ export default StyleSheet.create({
         width: '100%',
         height: 'auto',
         justifyContent: 'space-between',
+        paddingLeft: 10,
     },
 
     leftContent: {

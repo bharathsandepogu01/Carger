@@ -21,7 +21,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
         backgroundColor: Colors.NEAR_WHITE,
         ...Mixins.boxShadow(Colors.NEAR_BLACK),
-        padding: 15,
+        padding: 10,
         margin: 15,
         borderRadius: Spacing.RADIUS,
         justifyContent: 'space-around',
@@ -40,6 +40,8 @@ export default StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
+        paddingLeft: 5,
+        paddingRight: 10,
     },
 
     fuelType: {

@@ -27,6 +27,8 @@ export default StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 10,
         ...Mixins.boxShadow(Colors.NEAR_BLACK),
+        borderColor: Colors.LIGHT_GREY,
+        borderWidth: 0.3,
     },
 
     infoContainer: {

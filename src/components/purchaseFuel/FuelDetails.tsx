@@ -12,16 +12,18 @@ const FuelDetails = (props: FuelStationsNS.IFuelDetails) => {
         <View style={Styles.cardDisplay}>
             <Text style={Styles.fuelStationName}>{props.fuelStationName}</Text>
             {_.map(props.fuelDetails, (eachFuelDetail, key) => {
-                return (
-                    <View key={key} style={Styles.fuelDetail}>
-                        <View style={Styles.viewFlexRow}>
-                            <CommonFuelType fuelType={eachFuelDetail.fuel}/>
-                            <Text style={Styles.fuelType}>{`${eachFuelDetail.fuel}`}</Text>    
-                        </View> 
-                        <Text style={Styles.fuelDetails}>{`${eachFuelDetail.quantity} Litres`}</Text>
-                        <Text style={Styles.fuelDetails}>{`Rs ${_.round(eachFuelDetail.price, 2)}/Litre`}</Text>
-                    </View>
-                );
+                if(eachFuelDetail.quantity !== '0'){
+                    return (
+                        <View key={key} style={Styles.fuelDetail}>
+                            <View style={Styles.viewFlexRow}>
+                                <CommonFuelType fuelType={eachFuelDetail.fuel}/>
+                                <Text style={Styles.fuelType}>{`${eachFuelDetail.fuel}`}</Text>    
+                            </View> 
+                            <Text style={Styles.fuelDetails}>{`${eachFuelDetail.quantity} Litres`}</Text>
+                            <Text style={Styles.fuelDetails}>{`Rs ${_.round(eachFuelDetail.price, 2)}/Litre`}</Text>
+                        </View>
+                    );
+                }
             })}
         </View>
     )

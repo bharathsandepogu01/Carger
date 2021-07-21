@@ -29,10 +29,12 @@ const FuelStationsList = (props: FuelStationsNS.IFuelStationsListProps) => {
                             <View style={Styles.rightContent}>
                                 <View style={Styles.flexRow}>
                                 {_.map(item.fuelDetails, (eachFuelDetail, key) => {
-                                    return <CommonFuelType
-                                                fuelType={eachFuelDetail.fuel}
-                                                key={key}
-                                            />
+                                    if(eachFuelDetail.quantity !== '0'){
+                                        return <CommonFuelType
+                                            fuelType={eachFuelDetail.fuel}
+                                            key={key}
+                                        />
+                                    }
                                 })}
                                 </View>
                                 <CommonButton
