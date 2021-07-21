@@ -17,7 +17,7 @@ export default StyleSheet.create({
         ...Mixins.boxShadow(Colors.NEAR_BLACK),
         paddingLeft: 5,
         paddingRight: 15,
-        paddingTop: 15,
+        paddingTop: 10,
         paddingBottom: 15,
         marginTop: 10,
         marginBottom: 20,
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     rightContent: {
         alignItems: 'center',
         justifyContent: 'flex-start',
-        marginTop: 10,
+        marginTop: 15,
     },
 
     button: {
