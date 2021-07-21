@@ -16,7 +16,7 @@ export default StyleSheet.create({
         fontSize: Typography.FONT_SIZE_18,
         borderBottomWidth: 3,
         paddingLeft: 5,
-        height: '100%',
+        height: 45,
         width: '100%',
     },
 
