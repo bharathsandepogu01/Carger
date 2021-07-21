@@ -21,7 +21,7 @@ const TransactionsList = (props: ProfileNS.ITransactionsListProps) => {
                         return(
                             <View style={[Styles.card]}>
                                 <View>
-                                    <Text style={Styles.typeText}>{_.truncate(item.pId, {length: 20})}</Text>
+                                    <Text style={Styles.typeText}>{_.truncate(item.pId, {length: 30})}</Text>
                                     <View style={Styles.flewRow}>
                                         <Text style={Styles.dateText}>{`${item.quantity} litre ${item.fuelType}`}</Text>
                                         <CommonFuelType

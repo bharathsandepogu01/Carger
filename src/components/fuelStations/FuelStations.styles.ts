@@ -10,7 +10,7 @@ export default StyleSheet.create({
     },
 
     cardDisplay: {
-        height: 120,
+        height: 'auto',
         width: '90%',
         alignSelf: 'center',
         backgroundColor: Colors.NEAR_WHITE,
@@ -53,6 +53,10 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'flex-start',
         marginTop: 15,
+        position: 'absolute',
+        left: '73%',
+        width: '30%',
+        bottom: -10,
     },
 
     button: {
@@ -79,6 +83,7 @@ export default StyleSheet.create({
         fontFamily: Typography.FONT_FAMILY_REGULAR,
         fontSize: Typography.FONT_SIZE_14,
         color: Colors.INACTIVE_TEXT,
+        marginBottom: 5,
     },
 
     activityIndicator: {

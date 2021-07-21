@@ -22,7 +22,7 @@ const FuelStationsList = (props: FuelStationsNS.IFuelStationsListProps) => {
                         <Text style={Styles.mainHeading}>{item.name}</Text>
                         <View style={Styles.contentView}>
                             <View style={Styles.leftContent}>
-                                <Text style={Styles.text}>{item.address}</Text>
+                                <Text style={Styles.text}>{`${item.address}`}</Text>
                                 <Text style={Styles.text}>{`${item.distance} km`}</Text>
                                 <Text style={Styles.text}>{`waiting time: ${item.estimatedTime}`}</Text>
                             </View>
