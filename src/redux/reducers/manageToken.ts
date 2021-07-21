@@ -1,19 +1,21 @@
 import {Reducer} from 'redux';
 
-const initialState:UserDataNS.IState = {
-    userData: [],
+const initialState: ManageTokenNS.IState = {
+    token: null,
 };
 
 const reducer:Reducer<
-    UserDataNS.IState,
-    UserDataNS.allActions
+    ManageTokenNS.IState,
+    ManageTokenNS.AllActions
 > = (state = initialState, action) => {
     switch (action.type) {
-        case 'USER_DATA_SET_INITIAL_DATA':
+        
+        case 'MANAGE_TOKEN_SET_TOKEN':
             return {
                 ...state,
-                userData: action.payload.userData,
-            };
+                token: action.payload.token,
+            }
+
         default:
             return state;
     }

@@ -9,8 +9,8 @@ export default StyleSheet.create({
     },
     
     tinyLogo: {
-      width: 28,
-      height: 28,
+      width: 25,
+      height: 25,
     },
 
 });

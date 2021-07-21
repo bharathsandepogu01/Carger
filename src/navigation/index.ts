@@ -1,5 +1,7 @@
 import AuthStack from "./AuthStack";
-import HomeScreenStack from "./HomeScreenStack";
-import BottomTabs from "./BottomTabs";
+import AppStack from "./AppStack";
 
-export default BottomTabs;
+export {
+    AuthStack,
+    AppStack,
+};

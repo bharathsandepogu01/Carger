@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreenStack from './HomeScreenStack';
 import FuelStationsComponent from '@components/fuelStations';
 import ProfileComponent from '@components/profile';
-import CommonImageDisplay from '@components/CommonImageDisplay';
+import CommonImageDisplay from '@components/commonImageDisplay';
 
 import {Colors, Typography, Mixins} from '@styles/index';
 
@@ -75,7 +75,7 @@ const BottomTabs = () => {
             />
             <Screen 
                 name="Profile" 
-                component={ProfileComponent}     
+                component={ProfileComponent}
             />
         </Navigator>
     );
