@@ -91,6 +91,12 @@ class ActionCreators implements RegisterNS.IActionCreators {
                     parseInt(registerState.mobileNumber),
                     registerState.password
                 );
+                dispatch({
+                    type: actionTypes.REGISTER_SET_LOADER,
+                    payload: {
+                        isLoading: false,
+                    },
+                });
                 navigation.navigate('Login');
             }catch(error){
                 const errMessage = await errorObjectHandling(error);
