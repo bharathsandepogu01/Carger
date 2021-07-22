@@ -1,5 +1,5 @@
 # Carger
-  Carger is a mobile application developed for **Automated Fuel Stations** and for customers to buy fuel in advance and **refill fuel** in vechile just by entering the specified **otp** in nearby filling station. 
+  Carger is a mobile application developed for **Automated Fuel Stations** and for customers to buy fuel in advance and **refill fuel** in vechile just by entering the specified **otp** in nearby ordered filling station. 
 
 ## Tech stack 
   1. **React Native**
